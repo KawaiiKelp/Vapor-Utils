@@ -1,0 +1,38 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+bin/
+.settings/
+.metadata/
+.classpath
+.project
+*.launch
+
+# VS Code (혹시나 쓰는 멍청이들을 위해♡)
+.vscode/
+
+# Forge & Minecraft Runtime Files
+run/
+run-client/
+run-server/
+run-data/
+logs/
+crash-reports/
+usercache.json
+usernamecache.json
+forge*changelog.txt
+src/generated/.cache/
+
+# OS Junk
+.DS_Store
+Thumbs.db

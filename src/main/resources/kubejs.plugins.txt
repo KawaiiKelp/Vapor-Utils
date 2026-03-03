@@ -1,0 +1,1 @@
+com.kawaiikelp.vapor_utils.kubejs.VaporUtilsKubeJSPlugin

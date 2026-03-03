@@ -1,0 +1,14 @@
+{
+  "block.vapor_utils.acacia_drying_rack": "Acacia Drying Rack",
+  "block.vapor_utils.bamboo_drying_rack": "Bamboo Drying Rack",
+  "block.vapor_utils.birch_drying_rack": "Birch Drying Rack",
+  "block.vapor_utils.cherry_drying_rack": "Cherry Drying Rack",
+  "block.vapor_utils.dark_oak_drying_rack": "Dark Oak Drying Rack",
+  "block.vapor_utils.jungle_drying_rack": "Jungle Drying Rack",
+  "block.vapor_utils.mangrove_drying_rack": "Mangrove Drying Rack",
+  "block.vapor_utils.oak_drying_rack": "Oak Drying Rack",
+  "block.vapor_utils.spruce_drying_rack": "Spruce Drying Rack",
+  "config.jade.plugin_vapor_utils.drying_rack_info": "Drying Rack Progress",
+  "itemGroup.vapor_utils": "Vapor Utils",
+  "jade.vapor_utils.drying": "Drying"
+}

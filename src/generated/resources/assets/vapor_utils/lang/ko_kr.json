@@ -1,0 +1,14 @@
+{
+  "block.vapor_utils.acacia_drying_rack": "아카시아 건조대",
+  "block.vapor_utils.bamboo_drying_rack": "대나무 건조대",
+  "block.vapor_utils.birch_drying_rack": "자작나무 건조대",
+  "block.vapor_utils.cherry_drying_rack": "벚나무 건조대",
+  "block.vapor_utils.dark_oak_drying_rack": "짙은 참나무 건조대",
+  "block.vapor_utils.jungle_drying_rack": "정글나무 건조대",
+  "block.vapor_utils.mangrove_drying_rack": "맹그로브 건조대",
+  "block.vapor_utils.oak_drying_rack": "참나무 건조대",
+  "block.vapor_utils.spruce_drying_rack": "가문비나무 건조대",
+  "config.jade.plugin_vapor_utils.drying_rack_info": "건조대 진행도",
+  "itemGroup.vapor_utils": "증기 공방 유틸",
+  "jade.vapor_utils.drying": "건조 중"
+}

@@ -1,0 +1,13 @@
+{
+  "values": [
+    "vapor_utils:bamboo_drying_rack",
+    "vapor_utils:cherry_drying_rack",
+    "vapor_utils:birch_drying_rack",
+    "vapor_utils:oak_drying_rack",
+    "vapor_utils:acacia_drying_rack",
+    "vapor_utils:jungle_drying_rack",
+    "vapor_utils:dark_oak_drying_rack",
+    "vapor_utils:mangrove_drying_rack",
+    "vapor_utils:spruce_drying_rack"
+  ]
+}

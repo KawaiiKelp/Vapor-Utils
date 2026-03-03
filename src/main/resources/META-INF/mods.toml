@@ -1,0 +1,20 @@
+modLoader="javafml"
+# 변수 대신 직접 숫자 입력
+loaderVersion="[47,47.3)"
+license="MIT License"
+
+[[mods]]
+# 변수 대신 직접 입력
+modId="vapor_utils"
+version="0.1.0"
+displayName="Vapor Utils"
+authors="KawaiiKelp"
+description='''Essential utilities for the Vapor Opificium modpack.'''
+
+[[dependencies.vapor_utils]]
+modId="forge"
+mandatory=true
+# 변수 대신 직접 입력
+versionRange="[47,47.3)"
+ordering="NONE"
+side="BOTH"

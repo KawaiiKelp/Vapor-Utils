@@ -1,0 +1,9 @@
+{
+  "parent": "vapor_utils:block/drying_rack",
+  "textures": {
+    "bottom": "minecraft:block/cherry_planks",
+    "particle": "minecraft:block/cherry_planks",
+    "side": "minecraft:block/cherry_planks",
+    "top": "minecraft:block/cherry_planks"
+  }
+}

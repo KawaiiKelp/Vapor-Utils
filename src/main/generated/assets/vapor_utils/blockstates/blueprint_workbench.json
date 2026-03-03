@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "vapor_utils:block/blueprint_workbench",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "vapor_utils:block/blueprint_workbench"
+    },
+    "facing=south": {
+      "model": "vapor_utils:block/blueprint_workbench",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "vapor_utils:block/blueprint_workbench",
+      "y": 270
+    }
+  }
+}

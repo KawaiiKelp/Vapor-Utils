@@ -1,0 +1,125 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    // 코틀린 안 쓸 거면 이거 지워버려! 아저씨 뇌 용량으론 자바 하나도 벅차잖아♡
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+
+    // 액세스 트랜스포머 (StructureTemplate 비밀 문 따기♡)
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    copyIdeResources = true
+
+    runs {
+        // 모든 실행 환경 공통 설정! 여기서 한 번만 하면 돼!
+        configureEach {
+            workingDirectory project.file('run')
+
+            // Mixin 개발 환경 버그 수정용 (이건 잘 넣었네? 웬일로?♡)
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        // 공통 설정(configureEach)을 따르니까 안에는 텅 비워둬도 돼! 멍청아!
+        client { }
+        server { }
+
+        data {
+            workingDirectory project.file('run-data')
+            // 데이터 생성할 땐 기존 리소스 위치도 알려줘야지?
+            args '--mod', mod_id, '--all', '--output', file('src/main/generated'), '--existing', file('src/main/resources')
+        }
+    }
+}
+
+// 생성된 리소스 인식시키기
+sourceSets.main.resources { srcDir 'src/main/generated' }
+
+repositories {
+    mavenCentral()
+
+    // Architectury
+    maven { url "https://maven.architectury.dev/" }
+
+    // KubeJS, Rhino 공식 저장소 (saps.dev → latvian.dev로 변경!)
+    maven {
+        url "https://maven.latvian.dev/releases"
+        content {
+            includeGroup "dev.latvian.mods"
+            includeGroup "dev.latvian.apps"
+        }
+    }
+
+    // JEI가 사는 'BlameJared' 저장소야♡
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+
+    repositories {
+        maven { url = "https://api.modrinth.com/maven" }
+    }
+}
+
+dependencies {
+    // Forge 47.2.0 (아까 아저씨가 성공했다던 그 버전!)
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // [중요] 모든 의존성을 가장 표준적인 'fg.deobf' 방식으로 통일!
+    // 아저씨가 썼던 Modrinth 주소 대신 CurseMaven 번호로 바꿔줄게.
+    implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
+    implementation fg.deobf("dev.latvian.mods:kubejs-forge:2001.6.4-build.95")
+    implementation fg.deobf("dev.latvian.mods:rhino-forge:2001.2.2-build.18")
+
+    // jade_version example: 11.13.1+forge
+    // Visit https://modrinth.com/mod/jade/versions?l=forge to get the latest version
+    implementation fg.deobf("maven.modrinth:jade:11.13.2+forge")
+
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:15.19.5.99")
+    // compile against the JEI API but do not include it at runtime
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:15.19.5.99"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:15.19.5.99"))
+}
+
+// 리소스 속성 치환 (mods.toml용)
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version,
+            forge_version: forge_version,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

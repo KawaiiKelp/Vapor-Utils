@@ -1,0 +1,9 @@
+{
+  "parent": "vapor_utils:block/drying_rack",
+  "textures": {
+    "bottom": "minecraft:block/mangrove_planks",
+    "particle": "minecraft:block/mangrove_planks",
+    "side": "minecraft:block/mangrove_planks",
+    "top": "minecraft:block/mangrove_planks"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "vapor_utils:drying",
+  "input": {
+    "item": "minecraft:apple"
+  },
+  "result": {
+    "item": "minecraft:diamond"
+  },
+  "ticks": 200
+}

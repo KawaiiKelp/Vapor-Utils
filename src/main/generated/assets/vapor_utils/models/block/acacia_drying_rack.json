@@ -1,0 +1,9 @@
+{
+  "parent": "vapor_utils:block/drying_rack",
+  "textures": {
+    "bottom": "minecraft:block/acacia_planks",
+    "particle": "minecraft:block/acacia_planks",
+    "side": "minecraft:block/acacia_planks",
+    "top": "minecraft:block/acacia_planks"
+  }
+}
